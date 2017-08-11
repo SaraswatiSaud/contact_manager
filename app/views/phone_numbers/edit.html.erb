@@ -1,0 +1,9 @@
+<h1>Editing phone_numbers</h1>
+<%= form_for([@person, @phone_number]) do |f| %>
+  <p>
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
