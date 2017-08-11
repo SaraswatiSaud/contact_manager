@@ -1,0 +1,11 @@
+<%= form_for([@person, @person.phone_numbers.build]) do |f| %>
+  <p>
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

@@ -9,4 +9,9 @@
   <%= @person.last_name %>
 </p>
 
+<%= render @person.phone_numbers %>
+
+<h2>Add a phone number</h2>
+<%= render 'phone_numbers/form' %>
+
 <%= link_to 'Back', people_path %>
