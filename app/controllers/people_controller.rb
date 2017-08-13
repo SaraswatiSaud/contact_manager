@@ -1,4 +1,7 @@
 class PeopleController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_person, :authorize_user!, only: [:edit, :update, :destroy]
+
   def new
     @person = Person.new
   end
@@ -43,5 +46,16 @@ class PeopleController < ApplicationController
   private
   def person_params
     params.require(:person).permit(:first_name, :last_name)
+  end
+
+  def set_person
+    @person = Person.find(params[:id])
+  end
+
+  def authorize_user!
+    unless current_user.id == @person.user_id
+      flash[:notice] = 'You are not authorized for this action'
+      redirect_to people_path
+    end
   end
 end
