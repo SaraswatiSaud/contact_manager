@@ -7,6 +7,7 @@
 
   <% @people.each do |f| %>
     <tr>
+      <td><%= f.id %></td>
       <td><%= f.first_name %></td>
       <td><%= f.last_name %></td>
       <td><%= link_to 'Show', person_path(f) %></td>

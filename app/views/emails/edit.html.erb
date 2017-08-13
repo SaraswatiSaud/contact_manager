@@ -1,0 +1,9 @@
+<h1>Editing email address</h1>
+<%= form_for([@person, @email]) do |f| %>
+  <p>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

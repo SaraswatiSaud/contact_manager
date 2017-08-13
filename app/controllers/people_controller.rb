@@ -17,7 +17,7 @@ class PeopleController < ApplicationController
   end
 
   def index
-    @people = Person.all
+    @people = Person.all.order(id: :desc)
   end
 
   def edit
