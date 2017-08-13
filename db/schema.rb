@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811070051) do
+ActiveRecord::Schema.define(version: 20170812160634) do
+
+  create_table "emails", force: :cascade do |t|
+    t.string "address"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_emails_on_person_id"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string "first_name"
