@@ -1,26 +1,30 @@
 <h1>Listing People</h1>
-<table border="3">
-  <tr>
-    <th>ID</th>
-    <th>First Name</th>
-    <th colspan="4">Last Name</th>
-  </tr>
 
-  <% @people.each do |f| %>
+<% if @people.present? %>
+  <table border="3">
     <tr>
-      <td><%= f.id %></td>
-      <td><%= f.first_name %></td>
-      <td><%= f.last_name %></td>
-      <td><%= link_to 'Show', person_path(f) %></td>
-      <% if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_person_path(f) %></td>
-        <td><%= link_to 'Delete', person_path(f),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+      <th>ID</th>
+      <th>First Name</th>
+      <th colspan="4">Last Name</th>
     </tr>
-  <% end %>
-</table>
+
+    <% @people.each do |f| %>
+      <tr>
+        <td><%= f.id %></td>
+        <td><%= f.first_name %></td>
+        <td><%= f.last_name %></td>
+        <td><%= link_to 'Show', person_path(f) %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_person_path(f) %></td>
+          <td><%= link_to 'Delete', person_path(f),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
 <br>
 <%= link_to 'Create new person', new_person_path %> |
 
