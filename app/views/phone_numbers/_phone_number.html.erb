@@ -1,10 +1,12 @@
 <table>
   <tr>
-    
+
     <td><%= phone_number.number %></td>
-    <td><%= link_to 'Edit', edit_person_phone_number_path(@person, phone_number) %></td>
-    <td><%= link_to 'Delete', [phone_number.person, phone_number],
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %></td>
+    <% if user_signed_in? %>
+      <td><%= link_to 'Edit', edit_person_phone_number_path(@person, phone_number) %></td>
+      <td><%= link_to 'Delete', [phone_number.person, phone_number],
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 </table>

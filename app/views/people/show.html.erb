@@ -18,10 +18,13 @@
   </tr>
 </table>
 
-<h2>Add a phone number</h2>
-<%= render 'phone_numbers/form' %>
+<% if user_signed_in? %>
+  <h2>Add a phone number</h2>
+  <%= render 'phone_numbers/form' %>
 
-<h2>Add an email address</h2>
-<%= render 'emails/form' %>
+  <h2>Add an email address</h2>
+  <%= render 'emails/form' %>
+<% end %>
 
+<br>
 <%= link_to 'Back', people_path %>
